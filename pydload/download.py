@@ -6,7 +6,7 @@ mb = 1024 * 1024
 
 def dload(url, save_to_path, timeout=10, max_time=30):
     request = requests.get(url, timeout=timeout, stream=True)
-    print(request.headers)
+
     file_size = (float(request.headers['Content-length'])// mb) + 1
 
     is_stopped = False
@@ -21,6 +21,8 @@ def dload(url, save_to_path, timeout=10, max_time=30):
     
     if is_stopped:
         print('Stopped due to excess time')
+        return False
     
     else:
         print('Succefully Downloaded to:', save_to_path)
+        return True
