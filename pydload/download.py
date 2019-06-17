@@ -4,13 +4,21 @@ import time
 
 mb = 1024 * 1024
 
-def dload(url, save_to_path, timeout=10, max_time=30):
+def dload(url, save_to_path=None, timeout=10, max_time=30):
+    if not save_to_path:
+        save_to_path = url.split('/')[-1]
+        print('Saving the file at', save_to_path)
+
     if max_time:
         print("The download will be auto-terminated in", max_time, "if not completed.")
 
     request = requests.get(url, timeout=timeout, stream=True)
 
-    file_size = (float(request.headers['Content-length'])// mb) + 1
+    file_size = None
+    try:
+        file_size = (float(request.headers['Content-length'])// mb) + 1
+    except:
+        print('Content-length not found, file size cannot be estimated.')
 
     is_stopped = False
 
@@ -30,4 +38,4 @@ def dload(url, save_to_path, timeout=10, max_time=30):
     
     else:
         print('Succefully Downloaded to:', save_to_path)
-        return True
+        return save_to_path
