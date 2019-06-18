@@ -12,7 +12,11 @@ def dload(url, save_to_path=None, timeout=10, max_time=30):
     if max_time:
         print("The download will be auto-terminated in", max_time, "if not completed.")
 
-    request = requests.get(url, timeout=timeout, stream=True)
+    try:
+        request = requests.get(url, timeout=timeout, stream=True, verify=True)
+    except:
+        print('SSL certificate not verified...')
+        request = requests.get(url, timeout=timeout, stream=True, verify=False)
 
     file_size = None
     try:
