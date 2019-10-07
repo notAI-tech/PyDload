@@ -18,7 +18,7 @@ URL = 'https://github.com/bedapudi6788/PyDload'
 EMAIL = 'praneethbedapudi@gmail.com'
 AUTHOR = 'BEDAPUDI PRANEETH'
 REQUIRES_PYTHON = '>=3.5.0'
-VERSION = '1.0.5'
+VERSION = '1.0.6'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
