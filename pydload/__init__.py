@@ -1,1 +1,1 @@
-from .download import dload
+from .download import dload, cli
