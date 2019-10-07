@@ -7,8 +7,14 @@ pip install pydload
 
 # Usage
 ```
+# As a python module
 import pydload
-pydload.dload('url', 'out_path')
+pydload.dload('url')
+```
+
+```
+as a cli tool
+pydload url_to_download
 ```
 
 # Optional Params
