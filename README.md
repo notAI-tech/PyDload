@@ -13,7 +13,7 @@ pydload.dload('url')
 ```
 
 ```
-#as a cli tool
+# As a cli tool
 pydload url_to_download
 ```
 
