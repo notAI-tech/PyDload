@@ -1,12 +1,26 @@
 import requests
 import progressbar
 import time
+import uuid
 
 mb = 1024 * 1024
 
 def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
+    url = url.rstrip('/')
+    if 'http://' not in url[:7] and 'https://' not in url[:8]:
+        if verbose:
+            logging.warn('Assuming http://')
+        url = 'http://' + url
+
     if not save_to_path:
         save_to_path = url.split('/')[-1]
+        if not save_to_path.strip():
+            save_to_path = url.split('/')[-2]
+
+        if not save_to_path.strip():
+            save_to_path = str(uuid.uuid4())
+            print('Saving file as', save_to_path)
+
         if verbose:
             print('Saving the file at', save_to_path)
 
