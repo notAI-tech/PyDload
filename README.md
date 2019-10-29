@@ -6,13 +6,13 @@ pip install pydload
 ```
 
 # Usage
-```
+```python
 # As a python module
 import pydload
 pydload.dload('url')
 ```
 
-```
+```bash
 # As a cli tool
 pydload url_to_download
 ```
