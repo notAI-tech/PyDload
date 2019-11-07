@@ -13,7 +13,7 @@ def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
         url = 'http://' + url
 
     if not save_to_path:
-        save_to_path = url.split('/')[-1]
+        save_to_path = url.split('/')[-1].split('?')[0]
         if not save_to_path.strip():
             save_to_path = url.split('/')[-2]
 
