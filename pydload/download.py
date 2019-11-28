@@ -6,6 +6,27 @@ import uuid
 mb = 1024 * 1024
 
 def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
+    '''
+
+    Parameters:
+
+    url (str): URL of the file to be downloaded.
+
+    save_to_path (str): Save as. If not provided, will be saved in the working directory with file_name auto identified from url.
+
+    timeout (int): timeout for the initial handshake for requests.
+
+    max_time (int): Kill the download if it takes more than max_time seconds.
+        # Useful when you don't know the size of files before hand and don't want to download very large files.
+    
+    verbose (bool default:True): self explanatory
+
+
+    Returns:
+
+    False if downloading failed or stopped based on max_time. file_path if download is successful.
+
+    '''
     url = url.rstrip('/')
     if 'http://' not in url[:7] and 'https://' not in url[:8]:
         if verbose:
