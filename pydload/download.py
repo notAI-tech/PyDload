@@ -17,6 +17,7 @@ def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
     timeout (int): timeout for the initial handshake for requests.
 
     max_time (int): Kill the download if it takes more than max_time seconds.
+
         # Useful when you don't know the size of files before hand and don't want to download very large files.
     
     verbose (bool default:True): self explanatory
