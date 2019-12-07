@@ -5,6 +5,8 @@
 pip install pydload
 ```
 
+Documentation at http://bpraneeth.com/docs/pydload/
+
 # Usage
 ```python
 # As a python module
