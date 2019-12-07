@@ -117,3 +117,6 @@ def cli():
 
     dload(url, save_to_path=save_to_path, timeout=timeout, max_time=max_time, verbose=True)
 
+
+if __name__ == '__main__':
+    cli()
