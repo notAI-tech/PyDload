@@ -31,7 +31,7 @@ def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
     url = url.rstrip('/')
     if 'http://' not in url[:7] and 'https://' not in url[:8]:
         if verbose:
-            logging.warn('Assuming http://')
+            print('Assuming http://')
         url = 'http://' + url
 
     if not save_to_path:
@@ -41,7 +41,8 @@ def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
 
         if not save_to_path.strip():
             save_to_path = str(uuid.uuid4())
-            print('Saving file as', save_to_path)
+            if verbose:
+                print('Saving file as', save_to_path)
 
         if verbose:
             print('Saving the file at', save_to_path)
