@@ -2,6 +2,7 @@ import requests
 import progressbar
 import time
 import uuid
+from .utils import clean_url, get_save_to_path
 
 mb = 1024 * 1024
 
@@ -28,24 +29,10 @@ def dload(url, save_to_path=None, timeout=10, max_time=30, verbose=True):
     False if downloading failed or stopped based on max_time. file_path if download is successful.
 
     '''
-    url = url.rstrip('/')
-    if 'http://' not in url[:7] and 'https://' not in url[:8]:
-        if verbose:
-            print('Assuming http://')
-        url = 'http://' + url
+    
+    url = clean_url(url, verbose)
 
-    if not save_to_path:
-        save_to_path = url.split('/')[-1].split('?')[0]
-        if not save_to_path.strip():
-            save_to_path = url.split('/')[-2]
-
-        if not save_to_path.strip():
-            save_to_path = str(uuid.uuid4())
-            if verbose:
-                print('Saving file as', save_to_path)
-
-        if verbose:
-            print('Saving the file at', save_to_path)
+    save_to_path = get_save_to_path(url, save_to_path, verbose)
 
     if max_time:
         if verbose:
