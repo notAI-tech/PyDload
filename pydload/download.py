@@ -1,7 +1,8 @@
-import requests
-import progressbar
 import time
 import uuid
+import logging
+import requests
+import progressbar
 
 mb = 1024 * 1024
 
