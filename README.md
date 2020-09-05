@@ -1,4 +1,4 @@
-# PyDload
+# PyDload      [![Downloads](https://pepy.tech/badge/pydload)](https://pepy.tech/project/pydload)
 
 # Installation
 ```
